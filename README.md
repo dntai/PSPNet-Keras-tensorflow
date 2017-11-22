@@ -2,13 +2,24 @@
 
 Implemented Architecture of Pyramid Scene Parsing Network in Keras.
 
+-----------------
+
+## Changes compared to [Vladkryvoruchko/PSPNet-Keras-tensorflow](https://github.com/Vladkryvoruchko/PSPNet-Keras-tensorflow)
+
+- [x] use OpenCV to load and resize images (faster more than 10 times)
+- [x] use mp4 video as input
+- [x] save only alpha_blended for each frame
+- [ ] add links to Youtube 4k dataset results
+
+-----------------
+
 ### Setup
 1. Install dependencies:
     * Tensorflow (-gpu)
     * Keras
     * numpy
     * scipy
-    * pycaffe(PSPNet)(optional for converting the weights) 
+    * pycaffe(PSPNet)(optional for converting the weights)
     ```bash
     pip install -r requirements.txt --upgrade
     ```
@@ -20,7 +31,7 @@ Already converted weights can be downloaded here:
 
 [pspnet50_ade20k.npy](https://www.dropbox.com/s/ms8afun494dlh1t/pspnet50_ade20k.npy?dl=0)
 [pspnet101_cityscapes.npy](https://www.dropbox.com/s/b21j6hi6qql90l0/pspnet101_cityscapes.npy?dl=0)
-[pspnet101_voc2012.npy](https://www.dropbox.com/s/xkjmghsbn6sfj9k/pspnet101_voc2012.npy?dl=0) 
+[pspnet101_voc2012.npy](https://www.dropbox.com/s/xkjmghsbn6sfj9k/pspnet101_voc2012.npy?dl=0)
 
 Weights are **automatically** converted to the ```json/h5``` format on **first start**
 
@@ -70,12 +81,7 @@ List of arguments:
 * Memory usage can be optimized with:
     ```python
     config = tf.ConfigProto()
-    config.gpu_options.per_process_gpu_memory_fraction = 0.3 
+    config.gpu_options.per_process_gpu_memory_fraction = 0.3
     sess = tf.Session(config=config)
     ```
 * ```ndimage.zoom``` can take a long time
-
-
-
-
-
